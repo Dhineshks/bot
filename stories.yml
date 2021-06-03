@@ -1,0 +1,9 @@
+version: "2.0"
+
+stories:
+
+- story: happy path customer registration
+  steps:
+  - intent: greet
+  - action: utter_welcome_note
+  - action: utter_sign_in_or_sign_up

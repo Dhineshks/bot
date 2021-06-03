@@ -1,0 +1,47 @@
+version: "2.0"
+
+rules:
+
+- rule: Activate form
+  steps:
+  - intent: sign_up
+  - action: sign_up_form
+  - active_loop: sign_up_form
+
+- rule: Submit form
+  condition:
+  - active_loop: sign_up_form
+  steps:
+  - action: sign_up_form
+  - active_loop: null
+  - action: action_sign_up
+
+- rule: Activate signin form
+  steps:
+  - intent: sign_in
+  - action: sign_in_form
+  - active_loop: sign_in_form
+
+- rule: Submit signin form
+  condition:
+  - active_loop: sign_in_form
+  steps:
+  - action: sign_in_form
+  - active_loop: null
+  - action: action_sign_in
+# - rule: Activate domain form
+#   steps:
+#     - action: utter_discuss
+#     - action: domain_form
+#     - active_loop: domain_form
+
+# - rule: Submit domain form
+#   condition:
+#   - active_loop: domain_form
+#   steps:
+#   - action: domain_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: action_domain
+#   - action: utter_auth_success

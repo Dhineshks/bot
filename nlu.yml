@@ -1,0 +1,144 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: what_is_my_name
+  examples: |
+    - What is my name ?
+    - tell me my name
+
+- intent: my_name_is
+  examples: |
+    - My name is [abhishek]{"entity":"name","value":"abhishek"}
+    - [abhishek]{"entity":"name","value":"abhishek"} this side
+    - It's [Abhishek]{"entity":"name","value":"abhishek"}
+    - [abhishek]{"entity":"name","value":"abhishek"} is my name
+    - you can call me [Abhishek]{"entity":"name","value":"abhishek"}
+    - [sita]{"entity":"name","value":"sita"}
+    - [ram]{"entity":"name","value":"ram"}
+    - [ramesh]{"entity":"name","value":"ramesh"}
+    - [saurabh]{"entity":"name","value":"saurabh"}
+    - [elysian]{"entity":"name","value":"elysian"}
+    - [dhinesh]{"entity":"name","value":"dhinesh"}
+    - [harry]{"entity":"name","value":"harry"}
+    - [ema]{"entity":"name","value":"ema"}
+    - [ron wilson]{"entity":"name","value":"ron wilson"}
+
+- intent: mobile_number
+  examples: |
+    - my number is [8209829808]{"entity":"number"}
+    - [8209829808]{"entity":"number"}
+    - [8209829808]{"entity":"number"} is my number
+    - my nobile number is [8209829808]{"entity":"number"}
+
+- intent: my_email_is
+  examples: |
+    - My email is [abhig0204@gmail.com](email)
+    - i live in [abhig0204@gmail.com](email)
+    - It's [jay123@gmail.com](email)
+    - [abhig1250204@gmail.com](email) is my email
+    - [abhishekg0204@gmail.com](email)
+    - [saurabh@gmail.com](email)
+    - [surya1243@hotmail.com](email)
+    - [lokeshramdevbohara@outlook.com](email)
+    - [dhinesh.ks@yatra.com](email)
+    - [kumar@lenskart.com](email)
+
+- intent: my_brand_name
+  examples: |
+    - My brand name is [lenskart](brand)
+    - [lenskart](brand) is my brand
+    - It's [lenskart](brand)
+    - brand name is [yatra](brand)
+    - my brand is [bajaj](brand)
+    - It's [philips](brand)
+    - [wrogn](brand)
+    - [Indian Terrain](brand)
+
+- intent: my_website_is
+  examples: |
+    - my website is [www.lenskart.com](site)
+    - my domain is ["www.yatra.com"](site)
+    - ["www.wrogn.com"](site)
+    - ["www.philips.com"](site)
+    - ["www.bajaj.com"](site)
+    - ["www.indianterrain.in"](site)
+
+- intent: my_team_size_is
+  examples: |
+    - my team size is [17](size)
+    - team size is [30](size)
+    - size of team is [200](size)
+    - [250](size) is our team size
+
+- intent: sign_in
+  examples: |
+    - please sign me in 
+    - please log me in 
+    - sign in
+
+- intent: sign_up
+  examples: |
+    - i want to sign up
+    - i want to register myself
+    - i am new here
+    - how can i register 
+    - create new account
+    - i want new account
+    - register me
+    - sign up 
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
