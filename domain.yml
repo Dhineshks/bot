@@ -1,0 +1,181 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- my_name_is:
+    use_entities:
+    - name
+- my_email_is:
+    use_entities:
+    - email
+- what_is_my_name:
+    use_entities: true
+- sign_in:
+    use_entities: true
+- sign_up:
+    use_entities: true
+- mobile_number:
+    use_entities:
+    - number
+- my_website_is:
+    use_entities:
+    - site
+- my_brand_name:
+    use_entities:
+    - brand
+- my_team_size_is:
+    use_entities:
+    - size
+- bot_challenge:
+    use_entities: true
+entities:
+- name
+- email
+- number
+- brand
+- site
+- size
+- password
+slots:
+  name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  email:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  password:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  brand:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  site:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  size:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+responses:
+  utter_greet:
+  - text: Hey! I am you Virtual AI Assistant, I can help you with brand apps!
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_customer_details:
+  - text: Registered successfully with {name} and email {email}
+  utter_welcome_note:
+  - text: Let’s help you sign up on Intellemo so that you can begin launching ads like a pro.
+  utter_ask_name:
+  - text: To begin with, can you please tell us your name?
+  utter_ask_email:
+  - text: Nice to meet you {name}. Kindly share your email id that you’d like to use for logging into your account & accessing your reports.
+  utter_ask_number:
+  - text: Please provide your phone number as well. This would help us in ensuring smoother communication with you.
+  utter_ask_password:
+  - text: Kindly input your password to proceed.
+  utter_discuss:
+  - text: Let’s get to know each other better {name}.
+  utter_ask_brand:
+  - text: Let’s get to know each other better {name}. What's your legal brand name? We’ll need it for official purposes and billing.
+  utter_ask_site:
+  - text: Awesome! Do you have a website for the same? If yes, please share your website with us.
+  utter_ask_size:
+  - text: Got it! Have you run marketing before {name}. If yes, We are here to help you launch marketing campaigns like a pro and scale your business.The sign up process is almost complete now {name}. What is the size of your team presently?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_authsignup_success:
+  - text: You have successfully signed up now {name}.Let us know if you need our help with anything else.
+  utter_authsignup_failed:
+  - text: Kindly check the inputs you provided. For example email, name, website etc..
+  utter_authsignin_succed:
+  - text: You have successfully signed in now {name}.
+  utter_authsignin_fail:
+  - text: failed
+  utter_sign_in_or_sign_up:
+  - buttons:
+    - payload: /sign_in
+      title: Sign In
+    - payload: /sign_up
+      title: Sign Up
+    text: Please Sign In or Sign Up
+actions:
+- action_sign_up
+- action_domain
+- action_sign_in
+- utter_welcome_note
+- utter_ask_name
+- utter_ask_email
+- utter_ask_number
+- utter_ask_password
+- utter_ask_brand
+- utter_ask_site
+- utter_ask_size
+- utter_authsignup_success
+- utter_authsignup_failed
+- utter_authsignin_succed
+- utter_authsignin_fail
+forms:
+  sign_up_form:
+    required_slots:
+      brand:
+      - entity: brand
+        type: from_entity
+      email:
+      - entity: email
+        type: from_entity
+      name:
+      - entity: name
+        type: from_entity
+      number:
+      - entity: number
+        type: from_entity
+      password:
+      - type: from_text
+      site:
+      - entity: site
+        type: from_entity
+      size:
+      - entity: size
+        type: from_entity
+  sign_in_form:
+    required_slots:
+      name:
+      - entity: name
+        type: from_entity
+      password:
+      - type: from_text
+e2e_actions: []
